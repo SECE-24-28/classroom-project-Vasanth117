@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rainbow Color Mode</title>
+
+    <style>
+        body {
+            transition: background-color 0.6s ease, color 0.6s ease;
+            text-align: center;
+            padding: 40px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.4s;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body id="bg">
+
+    <h1 id="text">Click to Change Rainbow Color 🌈</h1>
+
+    <button onclick="changeMode()">Change Color</button>
+
+    <script>
+        let colors = [
+            {bg: "red", text: "white"},
+            {bg: "orange", text: "black"},
+            {bg: "yellow", text: "black"},
+            {bg: "green", text: "white"},
+            {bg: "blue", text: "white"},
+            {bg: "indigo", text: "white"},
+            {bg: "violet", text: "white"}
+        ];
+
+        let index = 0;
+
+        function changeMode() {
+            let bg = document.getElementById("bg");
+            let text = document.getElementById("text");
+
+            // Set new color
+            bg.style.backgroundColor = colors[index].bg;
+            bg.style.color = colors[index].text;
+
+            text.innerHTML = "Current Color: " + colors[index].bg.toUpperCase();
+
+            // Move to next color
+            index = (index + 1) % colors.length;
+        }
+    </script>
+
+</body>
+</html>
